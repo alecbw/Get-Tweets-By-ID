@@ -46,6 +46,8 @@ def get_account_tweets(tweet_id_list):
         for tweet in tweets:
             # print((tweet.author._json).keys())
             output_lod.append({
+                "tweet_url": f"twitter.com/{tweet.author.screen_name}/status/{tweet.id}",
+                'text': tweet.text,
                 'author_account': tweet.author.screen_name,
                 'author_name': tweet.author.name,
                 'author_description': tweet.author.description,
@@ -67,7 +69,6 @@ def get_account_tweets(tweet_id_list):
                 'likes': tweet.favorite_count,
                 'retweets': tweet.retweet_count,
                 'source': tweet.source,
-                'text': tweet.text
             })
 
     return output_lod
